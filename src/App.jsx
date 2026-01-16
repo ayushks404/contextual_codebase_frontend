@@ -6,14 +6,14 @@ import Register from "./pages/register"
 import Login from "./pages/login"
 import Dashboard from "./pages/dashboard";
 import Query from "./pages/query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate  } from "react-router-dom";
 import { AuthContext, AuthProvider } from './context/AuthContext';
 
 function ProtectedRoute({ children }) {
     const { token } = useContext(AuthContext); 
     if (!token) {
       
-      return <Navigate to="/login" replace />;
+      return <Navigate to="/" replace />;
     }
       return children;
   }
